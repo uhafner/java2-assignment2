@@ -27,7 +27,7 @@ endif::[]
 [TIP]
 ====
 
-Die Abgabe dieses Übungsblattes ist möglich bis zum 20.4. 18:00. Laden Sie Ihre Lösung im GitHub Classroom https://classroom.github.com/a/cyNQ162C[Assignment 1] auf den eigenen `main` Branch hoch.
+Die Abgabe dieses Übungsblattes ist möglich bis zum 27.4. 18:00. Laden Sie Ihre Lösung im GitHub Classroom https://classroom.github.com/a/ztT5nA-b[Assignment 2] auf den eigenen `main` Branch hoch.
 
 ====
 
