@@ -1,0 +1,77 @@
+name: 'Build and autograde'
+
+on:
+  push:
+    branches:
+      - '*'
+  pull_request:
+
+jobs:
+  Build:
+    runs-on: self-hosted
+    steps:
+      - uses: actions/checkout@v3
+      - name: Set up Maven
+        uses: stCarolas/setup-maven@v4.5
+        with:
+          maven-version: 3.9.1
+      - name: Compile, Test and Analysis
+        run: JAVA_HOME=/home/hafner/jdk-17.0.5+8 mvn -V --color always -ntp clean verify -Dmaven.test.failure.ignore=true | tee maven.log
+      - name: Mutation Coverage
+        run: JAVA_HOME=/home/hafner/jdk-17.0.5+8 mvn -V --color always -ntp org.pitest:pitest-maven:mutationCoverage
+      - name: Autograding
+        uses: uhafner/autograding-github-action@v1.7.0
+        with:
+          TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          HEAD_SHA: ${{github.event.pull_request.head.sha}}
+          CONFIG: >
+            {
+              "analysis": {
+                "tools": [
+                  {
+                    "id": "error-prone",
+                    "pattern": "**/*.log"
+                  },
+                  {
+                    "id": "javadoc-warnings",
+                    "pattern": "**/*.log"
+                  },
+                  {
+                    "id": "checkstyle",
+                    "pattern": "**/checkstyle-result.xml"
+                  },
+                  {
+                    "id": "pmd",
+                    "pattern": "**/pmd.xml"
+                  },
+                  {
+                    "id": "spotbugs",
+                    "pattern": "**/spotbugsXml.xml"
+                  }
+                ],
+                "typesIgnorePattern": "Varifier|YodaCondition",
+                "maxScore": 100,
+                "errorImpact": -5,
+                "highImpact": -2,
+                "normalImpact": -1,
+                "lowImpact": -1
+              },
+              "tests": {
+                "maxScore": 100,
+                "passedImpact": 0,
+                "failureImpact": -5,
+                "skippedImpact": -1
+              },
+              "coverage": {
+                "maxScore": 100,
+                "coveredPercentageImpact": 0,
+                "missedPercentageImpact": -1
+              },
+              "pit": {
+                "maxScore": 100,
+                "detectedImpact": 0,
+                "undetectedImpact": -1,
+                "detectedPercentageImpact": 0,
+                "undetectedPercentageImpact": 0
+              }
+            }

@@ -1,0 +1,7 @@
+assignments
+target
+.DS_Store
+*.class
+*.ctxt
+karatest.iml
+*.iml

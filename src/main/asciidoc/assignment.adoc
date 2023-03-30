@@ -1,0 +1,198 @@
+= Übungsblatt 2 - Softwareentwicklung 2
+:icons: font
+Prof. Dr. Ullrich Hafner <ullrich.hafner@hm.edu>
+:toc-title: Inhaltsverzeichnis
+:chapter-label:
+:chapter-refsig: Kapitel
+:section-label: Abschnitt
+:section-refsig: Abschnitt
+
+:xrefstyle: short
+:!sectnums:
+:partnums:
+ifndef::includedir[:includedir: ./]
+ifndef::imagesdir[:imagesdir: ./]
+ifndef::plantUMLDir[:plantUMLDir: .plantuml/]
+:figure-caption: Abbildung
+:table-caption: Tabelle
+
+ifdef::env-github[]
+:tip-caption: :bulb:
+:note-caption: :information_source:
+:important-caption: :heavy_exclamation_mark:
+:caution-caption: :fire:
+:warning-caption: :warning:
+endif::[]
+
+[TIP]
+====
+
+Die Abgabe dieses Übungsblattes ist möglich bis zum 20.4. 18:00. Laden Sie Ihre Lösung im GitHub Classroom https://classroom.github.com/a/cyNQ162C[Assignment 1] auf den eigenen `main` Branch hoch.
+
+====
+
+== 2. Zeichen und Zeichenketten
+
+Zur Absicherung eines Benutzerkontos soll ein möglichst sicheres Passwort verwendet werden. Ein Passwort gilt als sicher, wenn die folgenden Kriterien erfüllt sind:
+
+. es ist mindestens 20 Zeichen lang
+. es enthält mindestens einen Kleinbuchstaben
+. es enthält mindestens einen Großbuchstaben
+. es enthält mindestens eine Ziffer
+. es enthält mindestens ein Sonderzeichen aus der Menge `{+, -, !, %, $, #}`
+. es enthält mindestens 10 verschiedene Zeichen
+. es enthält nur Zeichen aus dem ASCII-Zeichensatz
+. es ähnelt keinem der vorgegebenen Passwörter. Zwei Wörter ähneln sich, wenn Sie nach folgendem Schema übereinstimmen:
+- sie unterscheiden sich nur in der Klein oder Großschreibung, also "passwort" und "Passwort"
+- Ein beliebiges Zeichen mehr (egal an welcher Stelle), also "Passwor" und "Passwort"
+- Ein beliebiges Zeichen weniger (egal an welcher Stelle), also "Passworte" und "Passwort"
+- Ein beliebiges Zeichen vertauscht (egal an welcher Stelle), also "Passwort" und "Passw0rt"
+
+== 2.1 Testfälle für den `PasswordChecker`
+
+Schreiben Sie mehrere Modultests in der Klasse `PasswordCheckerTest`, um die Funktionalität von oben zu überprüfen. Wenn Sie lieber erst den Quelltext der Klasse `PasswordChecker` schreiben wollen, können Sie auch erst mit Aufgabe 2.2 starten und dann hinterher hier zurückkommen. Wenn Sie gar nicht selbst testen wollen, können Sie auch nur meine Tests aus der Klasse `PasswordCheckerAbnahmeTest` verwenden.
+
+== 2.2 Implementierung des `PasswordChecker`
+
+Schreiben Sie eine passende Methode, die sichere Passwörtern erkennen kann. Damit die von mir vorgegebenen Testfälle funktionieren, lassen Sie die folgende vorgegebenen Signaturen für Konstruktor und Methode unverändert:
+
+[source,java]
+----
+public class PasswordChecker {
+    /**
+     * Creates a new {@link PasswordChecker} instance.
+     *
+     * @param dictionary
+     *         a dictionary of not allowed passwords
+     */
+    public PasswordChecker(final String... dictionary) {
+        // add your code
+    }
+
+    /**
+     * Returns whether the password is strong enough, or not.
+     *
+     * @param password
+     *         the password to check
+     *
+     * @return {@code true} if the password is strong enough, {@code false} otherwise
+     */
+    public boolean isValid(final String password) {
+        // add your code
+    }
+}
+----
+
+**Tipp**: Lagern Sie jede der Regeln in eine package private Methode aus. Dann können Sie diese Regeln einzeln mit Tests überprüfen.
+
+== 3. Caesar Verschlüsselung
+
+Die https://de.wikipedia.org/wiki/Caesar-Verschlüsselung[Caesar Verschlüsselung] ist ein sehr altes symmetrisches Verschlüsselungsverfahren, mit dem man Texte verschlüsseln und entschlüsseln kann.
+
+Schreiben Sie eine Klasse `CaesarCipher`, die Texte entsprechend verschlüsseln und entschlüsseln kann. Denken Sie daran, auch ausreichend Testfälle zu schreiben, die alle Aspekte der Funktionalität dieser Klasse sicherstellt. Gerade bei dieser Aufgabenstellung lässt sich das https://de.wikipedia.org/wiki/Testgetriebene_Entwicklung[Test Driven Development] gut umsetzten! Probieren Sie es einmal aus und schreiben erst alle Testfälle, bevor Sie die Umsetzung starten.
+
+[source,java]
+----
+public class CaesarCipher {
+    /**
+     * Creates a new {@link CaesarCipher} instance.
+     *
+     * @param offset
+     *         the offset to apply
+     */
+    public CaesarCipher(final int offset) {
+        // add your code
+    }
+
+    /**
+     * Encrypts the specified text.
+     *
+     * @param text
+     *         the text to encrypt
+     *
+     * @return the encrypted text using Caesar cipher with the predefined offset
+     */
+    public String encrypt(final String text) {
+        // add your code
+        return text;
+    }
+
+    /**
+     * Decrypts the specified text.
+     *
+     * @param text
+     *         the text to decrypt
+     *
+     * @return the decrypt text using Caesar cipher with the predefined offset
+     */
+    public String decrypt(final String text) {
+        // add your code
+        return text;
+    }
+}
+----
+
+== 4. Palindrome
+
+https://de.wikipedia.org/wiki/Palindrom[Palindrome] sind Wörter, die von rückwärts gelesen identisch zum Ausgangswort sind. Hier einige Beispiele:
+
+- Otto
+- Reittier
+- Reliefpfeiler
+- Rentner
+
+Schreiben Sie eine Methode `isPalindrome`, die überprüft, ob ein vorgegebenes Wort ein Palindrom ist. Denken Sie daran, auch ausreichend Testfälle zu schreiben, die alle Aspekte der Funktionalität dieser Methode sicherstellt. Gerade bei dieser Aufgabenstellung lässt sich das https://de.wikipedia.org/wiki/Testgetriebene_Entwicklung[Test Driven Development] gut umsetzten! Probieren Sie es einmal aus und schreiben erst alle Testfälle, bevor Sie die Umsetzung starten.
+
+
+[source,java]
+----
+public class StringExamples {
+    /**
+     * Returns whether the specified text is a palindrome.
+     *
+     * @param text
+     *         the text to inspect
+     *
+     * @return {@code true} if the text is a a palindrome, {@code false} otherwise
+     */
+    public static boolean isPalindrome(final String text) {
+        // add your code
+        return false;
+    }
+}
+----
+
+== 5. Anagramme
+
+https://de.wikipedia.org/wiki/Anagramm[Anagramme] sind Wörter, die aus denselben Buchstaben bestehen, jedoch in einer beliebigen Reihenfolge auftreten. (Alle Palindrome sind dementsprechend auch Anagramme.) Hier einige Beispiele:
+
+- Lampe -- Ampel
+- Ampel -- Palme
+- Einbrecher -- bereichern
+
+Schreiben Sie eine Methode `isAnagram`, die überprüft, ob zwei gegebene Wörter ein Anagram bilden.
+Die Klein und Großschreibung ist nicht relevant. Denken Sie daran,
+auch ausreichend Testfälle zu schreiben, die alle Aspekte der Funktionalität dieser Methode sicherstellt. Gerade bei dieser
+Aufgabenstellung lässt sich das https://de.wikipedia.org/wiki/Testgetriebene_Entwicklung[Test Driven Development] gut
+umsetzten! Probieren Sie es einmal aus und schreiben erst alle Testfälle, bevor Sie die Umsetzung starten.
+
+
+[source,java]
+----
+public class StringExamples {
+    /**
+     * Returns whether the specified words are an anagram.
+     *
+     * @param word
+     *         the text to inspect
+     * @param otherWord
+     *         the text to inspect
+     *
+     * @return {@code true} if both words are an anagram, {@code false} otherwise
+     */
+    public static boolean isAnagram(final String word, final String otherWord) {
+        // add your code
+        return false;
+    }
+}
+----
