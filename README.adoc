@@ -45,7 +45,7 @@ Für die gängigen Betriebssysteme Windows, macOS und Linux sollte jeweils eine 
 
 Die Rechner der Hochschule sind bereits mit der richtigen Software vorkonfiguriert. Wenn Sie einen eigenen Rechner nutzen, kommen Sie damit -- falls möglich -- ins Praktikum, sodass wir die Installation gemeinsam durchführen können.
 
-Da wir werden Ihre Abgaben auch automatisiert bewerten, können Sie optional noch das Tool https://maven.apache.org/download.cgi[Maven] in der Version `3.9.0` installieren, um die automatisierte Bewertung vorab lokal auszuführen. Das ist optional und erfordert tiefere Rechnerkenntnisse. Sie haben alternativ immer die Möglichkeit, die Ergebnisse direkt im GitHub Classroom anzuschauen.
+Da wir werden Ihre Abgaben auch automatisiert bewerten, können Sie optional noch das Tool https://maven.apache.org/download.cgi[Maven] in der Version `3.9.1` installieren, um die automatisierte Bewertung vorab lokal auszuführen. Das ist optional und erfordert tiefere Rechnerkenntnisse. Sie haben alternativ immer die Möglichkeit, die Ergebnisse direkt im GitHub Classroom anzuschauen.
 
 === Windows
 
