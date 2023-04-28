@@ -5,7 +5,7 @@ package edu.hm.hafner.java2.assignment2;
  */
 public class PasswordChecker {
 
-    final String[] dictionary;
+    private final String[] dictionary;
 
     /**
      * Creates a new {@link PasswordChecker} instance.
@@ -25,6 +25,7 @@ public class PasswordChecker {
      *
      * @return {@code true} if the password is strong enough, {@code false} otherwise
      */
+    @SuppressWarnings("checkstyle:SimplifyBooleanReturn")
     public boolean isValid(final String password) {
         if (!isTwentyCharsLong(password)) {
             return false;
@@ -49,7 +50,8 @@ public class PasswordChecker {
         }
         else if (isSimilarToDictionary(password)) {
             return false;
-        } else {
+        }
+        else {
             return true;
         }
     }
@@ -172,7 +174,7 @@ public class PasswordChecker {
     }
 
     /**
-     * Checks if string is similar to the dictionary of the PasswordChecker
+     * Checks if string is similar to the dictionary of the PasswordChecker.
      *
      * @param string
      *         string to check
@@ -221,7 +223,7 @@ public class PasswordChecker {
     }
 
     /**
-     * Checks if 2 strings are equal under the condition, that only one character is different
+     * Checks if 2 strings are equal under the condition, that only one character is different.
      *
      * @param a
      *         first string
