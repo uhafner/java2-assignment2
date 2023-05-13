@@ -1,6 +1,5 @@
 package edu.hm.hafner.java2.assignment2;
 
-import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.Assertions.*;
@@ -10,7 +9,6 @@ import static org.assertj.core.api.Assertions.*;
  *
  * @author Ullrich Hafner
  */
-@Disabled("Disabled until the implementation is available")
 class PasswordCheckerTest {
     private static final String VALID = "qwertyuiopasdfghjA0!";
 
@@ -62,16 +60,16 @@ class PasswordCheckerTest {
         assertThat(new PasswordChecker("something", VALID).isValid(VALID)).isFalse();
         assertThat(new PasswordChecker("something", VALID, "end").isValid(VALID)).isFalse();
 
-        assertThat(new PasswordChecker("qwertyuiopasdfghjA0!").isValid("qwertyuiopasdfghjA-0!")).isFalse();
-        assertThat(new PasswordChecker("qwertyuiopasdfghjA0!").isValid("qwertyuiopasdfghjA--0!")).isTrue();
+        assertThat(new PasswordChecker(VALID).isValid("qwertyuiopasdfghjA-0!")).isFalse();
+        assertThat(new PasswordChecker(VALID).isValid("qwertyuiopasdfghjA--0!")).isTrue();
 
         assertThat(new PasswordChecker("qwertyuiopasdfghjA0!01").isValid("qwertyuiopasdfghjA0!01")).isFalse();
         assertThat(new PasswordChecker("qwertyuiopasdfghjA0!01").isValid("qwertyuiopasdfghjA0!0")).isFalse();
-        assertThat(new PasswordChecker("qwertyuiopasdfghjA0!01").isValid("qwertyuiopasdfghjA0!")).isTrue();
+        assertThat(new PasswordChecker("qwertyuiopasdfghjA0!01").isValid(VALID)).isTrue();
 
-        assertThat(new PasswordChecker("qwertyuiopasdfghjA0!").isValid("qwertyuiopasdfghjA0!")).isFalse();
-        assertThat(new PasswordChecker("qwertyuiopasdfghjA0!").isValid("qwertyuiopasdAghjA0!")).isFalse();
-        assertThat(new PasswordChecker("qwertyuiopasdfghjA0!").isValid("qwertyuiopasAAghjA0!")).isTrue();
+        assertThat(new PasswordChecker(VALID).isValid(VALID)).isFalse();
+        assertThat(new PasswordChecker(VALID).isValid("qwertyuiopasdAghjA0!")).isFalse();
+        assertThat(new PasswordChecker(VALID).isValid("qwertyuiopasAAghjA0!")).isTrue();
     }
 
     @Test
