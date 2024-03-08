@@ -8,7 +8,7 @@
   <parent>
     <artifactId>codingstyle-pom</artifactId>
     <groupId>edu.hm.hafner</groupId>
-    <version>3.39.0</version>
+    <version>3.44.0</version>
   </parent>
 
   <artifactId>java2-assignment2</artifactId>
