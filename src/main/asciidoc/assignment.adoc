@@ -50,7 +50,7 @@ Zur Absicherung eines Benutzerkontos soll ein möglichst sicheres Passwort verwe
 
 == 2.1 Testfälle für den `PasswordChecker`
 
-Schreiben Sie mehrere Modultests in der Klasse `PasswordCheckerTest`, um die Funktionalität von oben zu überprüfen. Wenn Sie lieber erst den Quelltext der Klasse `PasswordChecker` schreiben wollen, können Sie auch erst mit Aufgabe 2.2 starten und dann hinterher hier zurückkommen. Wenn Sie gar nicht selbst testen wollen, können Sie auch nur meine Tests aus der Klasse `PasswordCheckerAbnahmeTest` verwenden.
+Schreiben Sie mehrere Modultests in der Klasse `StrongPasswordCheckerTest`, um die Funktionalität von oben zu überprüfen. Wenn Sie lieber erst den Quelltext der Klasse `StrongPasswordChecker` schreiben wollen, können Sie auch erst mit Aufgabe 2.2 starten und dann hinterher hier zurückkommen. Wenn Sie gar nicht selbst testen wollen, können Sie auch nur meine Tests aus der Klasse `PasswordCheckerAbnahmeTest` verwenden.
 
 == 2.2 Implementierung des `PasswordChecker`
 
